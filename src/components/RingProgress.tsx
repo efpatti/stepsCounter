@@ -27,6 +27,7 @@ const RingProgress = ({ radius = 100, strokeWidth = 35, progress }: RingProggres
  }, [progress]);
  const animatedProps = useAnimatedProps(() => ({
   strokeDasharray: [circumference * fill.value, circumference],
+  strokeDashoffset: 0,
  }));
 
  const circleDefaultProps: CircleProps = {
@@ -35,6 +36,10 @@ const RingProgress = ({ radius = 100, strokeWidth = 35, progress }: RingProggres
   r: innerRadius,
   strokeWidth: strokeWidth,
   stroke: color,
+  fill: "none",
+  rotation: "-90",
+  origin: radius,
+  strokeLinecap: "round",
  };
 
  return (
@@ -51,19 +56,10 @@ const RingProgress = ({ radius = 100, strokeWidth = 35, progress }: RingProggres
     <Circle
      {...circleDefaultProps}
      opacity={0.2} // Opacidade reduzida para o círculo de fundo
-     stroke={color}
     />
 
     {/* Círculo de progresso */}
-    <AnimatedCircle
-     animatedProps={animatedProps}
-     rotation="-90"
-     origin={radius}
-     {...circleDefaultProps}
-     strokeDashoffset={0}
-     strokeLinecap="round"
-     fill="none"
-    />
+    <AnimatedCircle animatedProps={animatedProps} {...circleDefaultProps} />
    </SVG>
   </View>
  );
