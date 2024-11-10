@@ -5,12 +5,12 @@ import React from "react";
 type RingProggressProps = {
  radius?: number;
  strokeWidth?: number;
- progress?: number; // Adicionando uma prop de progresso
+ progress: number; // Adicionando uma prop de progresso
 };
 
 const color = "#EE0F55";
 
-const RingProgress = ({ radius = 100, strokeWidth = 20, progress = 0.2 }: RingProggressProps) => {
+const RingProgress = ({ radius = 100, strokeWidth = 35, progress }: RingProggressProps) => {
  const innerRadius = radius - strokeWidth / 2; // raio interno do círculo
  const circumference = Math.PI * 2 * innerRadius; // circunferência do círculo
 
@@ -45,6 +45,8 @@ const RingProgress = ({ radius = 100, strokeWidth = 20, progress = 0.2 }: RingPr
      strokeDashoffset={0} //
      strokeLinecap="round"
      fill="none"
+     rotation="-90"
+     origin={radius}
     />
    </SVG>
   </View>
