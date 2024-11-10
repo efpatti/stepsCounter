@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text } from "react-native";
 type ValueProps = {
- value: string;
- label: string;
+ value?: string;
+ label?: string;
 };
 const Value = ({ label, value }: ValueProps) => (
  <View>
