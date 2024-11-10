@@ -35,9 +35,6 @@ const RingProgress = ({ radius = 100, strokeWidth = 35, progress }: RingProggres
   r: innerRadius,
   strokeWidth: strokeWidth,
   stroke: color,
-  strokeDashoffset: 0,
-  strokeLinecap: "round",
-  fill: "none",
  };
 
  return (
@@ -52,10 +49,7 @@ const RingProgress = ({ radius = 100, strokeWidth = 35, progress }: RingProggres
    <SVG>
     {/* Círculo de fundo com opacidade ajustada */}
     <Circle
-     cx={radius}
-     cy={radius}
-     r={innerRadius}
-     strokeWidth={strokeWidth}
+     {...circleDefaultProps}
      opacity={0.2} // Opacidade reduzida para o círculo de fundo
      stroke={color}
     />
@@ -66,6 +60,9 @@ const RingProgress = ({ radius = 100, strokeWidth = 35, progress }: RingProggres
      rotation="-90"
      origin={radius}
      {...circleDefaultProps}
+     strokeDashoffset={0}
+     strokeLinecap="round"
+     fill="none"
     />
    </SVG>
   </View>
